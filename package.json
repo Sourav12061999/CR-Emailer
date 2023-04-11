@@ -9,12 +9,31 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
+    "@mantine/core": "^6.0.7",
+    "@mantine/dates": "^6.0.7",
+    "@mantine/dropzone": "^6.0.7",
+    "@mantine/form": "^6.0.7",
+    "@mantine/hooks": "^6.0.7",
+    "@mantine/modals": "^6.0.7",
+    "@mantine/next": "^6.0.7",
+    "@mantine/notifications": "^6.0.7",
+    "@mantine/nprogress": "^6.0.7",
+    "@tabler/icons-react": "^2.15.0",
+    "dayjs": "^1.11.7",
     "next": "13.3.0",
+    "papaparse": "^5.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@types/node": "18.15.11",
+    "@types/papaparse": "^5.3.7",
+    "@types/react": "18.0.34",
+    "@types/react-dom": "18.0.11",
     "eslint": "8.38.0",
-    "eslint-config-next": "13.3.0"
+    "eslint-config-next": "13.3.0",
+    "typescript": "5.0.4"
   }
 }
