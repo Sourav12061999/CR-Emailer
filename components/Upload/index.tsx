@@ -3,9 +3,12 @@ import { Text, Group, Button, rem } from "@mantine/core";
 import { Dropzone, MIME_TYPES } from "@mantine/dropzone";
 import { IconCloudUpload, IconX, IconDownload } from "@tabler/icons-react";
 import { useStyles } from "./styles";
-import Papa from "papaparse";
+import { FileWithPath } from "@mantine/dropzone";
 
-export default function Upload() {
+interface PropTypes {
+  onDropHandler: (file: FileWithPath[]) => void;
+}
+export default function Upload({ onDropHandler }: PropTypes) {
   const { classes, theme } = useStyles();
   const openRef = useRef<() => void>(null);
 
@@ -13,16 +16,7 @@ export default function Upload() {
     <div className={classes.wrapper}>
       <Dropzone
         openRef={openRef}
-        onDrop={(file) => {
-          console.log(file);
-          const reader = new FileReader();
-          reader.onload = async (target: any) => {
-            console.log(target);
-            // const csv = Papa.parse(target.result, { header: true });
-            // const parsedData = csv?.data;
-            // console.log(parsedData);
-          };
-        }}
+        onDrop={onDropHandler}
         className={classes.dropzone}
         radius="md"
         accept={[MIME_TYPES.csv]}
