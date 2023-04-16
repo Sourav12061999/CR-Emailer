@@ -3,20 +3,6 @@ import Head from "next/head";
 import { Upload } from "@/components";
 import Papa from "papaparse";
 import { FileWithPath } from "@mantine/dropzone";
-import { z } from "zod";
-
-export const studentDataSchema = z.array(
-  z.object({
-    code: z.string(),
-    name: z.string(),
-    email: z.string().email(),
-    current_coding_course: z.string(),
-    coding_async: z.boolean(),
-    coding_attendance: z.number(),
-    coding_assignment: z.number(),
-    weighted_coding_score: z.number(),
-  })
-);
 const Home: NextPage = () => {
   const onFileDropHandler = (file: FileWithPath[]) => {
     if (!file[0]) return;
