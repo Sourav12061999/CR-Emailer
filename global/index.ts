@@ -1,3 +1,4 @@
+import { type } from "os";
 import { z } from "zod";
 
 export const requiredCols = {
@@ -21,3 +22,10 @@ export const studentDataSchema = z.object({
   coding_assignment: z.number(),
   weighted_coding_score: z.number(),
 });
+
+export type ErrorType = {
+  isError: boolean;
+  error: any;
+};
+
+export type StudentDataType = z.infer<typeof studentDataSchema>;

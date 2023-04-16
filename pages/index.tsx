@@ -3,15 +3,26 @@ import Head from "next/head";
 import { Upload } from "@/components";
 import Papa from "papaparse";
 import { FileWithPath } from "@mantine/dropzone";
+import { useDataFormatter } from "@/hooks";
+import { useEffect } from "react";
+import { StudentsTable } from "@/components";
+import { requiredCols } from "global";
 const Home: NextPage = () => {
+  const { rowState, format } = useDataFormatter();
   const onFileDropHandler = (file: FileWithPath[]) => {
     if (!file[0]) return;
     Papa.parse(file[0], {
-      complete: function (results) {
+      complete: function (results: any) {
         console.log("Finished:", results);
+        format(results.data);
       },
     });
   };
+
+  useEffect(() => {
+    console.log(rowState);
+  }, [rowState]);
+
   return (
     <>
       <Head>
@@ -22,6 +33,7 @@ const Home: NextPage = () => {
 
       <main>
         <Upload onDropHandler={onFileDropHandler} />
+        <StudentsTable headers={Object.keys(requiredCols)} data={rowState} />
       </main>
     </>
   );

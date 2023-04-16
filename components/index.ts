@@ -1,3 +1,5 @@
 import Upload from "./Upload";
+import StudentsTable from "./Students";
+import { Switch } from "./Switch";
 
-export { Upload };
+export { Upload, StudentsTable, Switch };
